@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Vechicles
+  - Car
+  - HYRFourthSl
+  - HYRFourthMd
+  - HYRFourthFt
+  - HYRFirstMd
+  - HYRFirstFt
+  - HYRSecSl
+  - HYRSecMd
+  - HYRSecFt
+  - HYRThirdSl
+  - HYRThirdMd
+  - HYRThirdFt
+  - HYRFirstSl
+  - SYSSecSl
+  - SYSSecMd
+  - SYSSecFt
+  - SYSThirdSl
+  - SYSThirdMd
+  - SYSThirdFt
+  - SYSFourthSl
+  - SYSFourthMd
+  - SYSFourthFt
+  - HMSFirstEn
+  - HMSFirstSl
+  - HMSFirstMd
+  - HMSFirstFt
+  - HYSSecSl
+  - HYSSecMd
+  - HYSSecEx
+  - KYSThirdSl
+  - KYSThirdFt
+  - KYSFourthSl
+  - KYSFourthMS
+  - KYSFourthMF
+  - KYSFourthFt
+  - HYSFirstEn
+  - HYSFirstSl
+  - HYSFirstMd
+  - HYSFirstFt
+  - HYSSecFt
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Car
+  - Target
+  - Obstruction
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.unblockkwuntong_combine.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\IgameP\\Desktop\\FYP\\Version\\UnblockKwunTong_combine\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "UnblockKwunTong_combine [Testing]"
+        }
+      }
+    }
+  ]
+}

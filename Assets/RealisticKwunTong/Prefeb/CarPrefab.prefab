@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3660457116453431774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3660457116453431768}
+  - component: {fileID: 3660457116453431769}
+  - component: {fileID: 3660457116453431770}
+  - component: {fileID: 3660457116453431771}
+  m_Layer: 7
+  m_Name: CarPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3660457116453431768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660457116453431774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -74.3, y: 0.1, z: 137.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3660457116453431769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660457116453431774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe911a3b2687c9419b6dee3732102af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefabs:
+  - {fileID: 157676, guid: e73e1576ab67ecc478994abae834bdee, type: 3}
+  - {fileID: 141870, guid: 717534f9a65334643844ccf8b0cb2bb0, type: 3}
+  - {fileID: 198730, guid: 4925a8e004e3bcd4a82889f6e811ebf1, type: 3}
+  - {fileID: 127632, guid: 3e19beab7f2790d4c99d2ae0922bee05, type: 3}
+  - {fileID: 175378, guid: 85ecb756846b4684fb1da45bda0aa677, type: 3}
+  - {fileID: 130278, guid: 0607441469c0fe14b983531bcb1a62ef, type: 3}
+--- !u!114 &3660457116453431770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660457116453431774}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54e069d93e83b3439a5ecc0eba1b43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
+  angle: 50
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  obsructionMask:
+    serializedVersion: 2
+    m_Bits: 512
+  toStop: 0
+--- !u!114 &3660457116453431771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660457116453431774}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dcf79fa1d491ce459da12cbfcff5211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSpeed: 0
+  carMaxSpeed: 7
+  carAccelerateSpeed: 1
+  carStopSpeed: 0
+  wayPoints: []

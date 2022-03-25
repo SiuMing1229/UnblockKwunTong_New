@@ -6,17 +6,17 @@ public class CarMovementController_Ver02 : MonoBehaviour
 {
     public float currentSpeed;
     public float accSpeed;
-    private const float MAXSPEED = 15f;
-    
+    private const float MAXSPEED = 15f; 
 
     public bool stopMode;
     public bool normalMode;
     public bool turningMode;
     public bool slowdownMode;
-
-    public Raycast_Ver2 frontSensor; 
+    public bool parkingMode;
 
     [SerializeField] private float timer;
+
+    FrontSensor frontSensor;
 
 
     private void Start()
@@ -26,6 +26,8 @@ public class CarMovementController_Ver02 : MonoBehaviour
         InitializedSpeedController();
         timer = 0f;
         //frontSensor = GetComponentInChildren<Raycast_Ver2>();
+        //frontSensor = GetComponentInChildren<FrontSensor>();
+        frontSensor = transform.GetChild(0).GetChild(0).GetComponent<FrontSensor>();
     }
 
     private void Update()
@@ -59,19 +61,27 @@ public class CarMovementController_Ver02 : MonoBehaviour
         {
             normalModeController();
         }
+
+        if (frontSensor.isHit)
+        {
+            stopMode = true;
+            normalMode = false;
+        }
+        else if (!frontSensor.isHit)
+        {
+            normalMode = true;
+            stopMode = false;
+        }
     }
 
     public void normalModeController()
     {
-        
-        if(Time.time >= timer && currentSpeed >= 0)
-        {
+        if (Time.time >= timer && currentSpeed >= 0 && currentSpeed < MAXSPEED) {
             accSpeed = 0.4f;
             currentSpeed += accSpeed;
             timer = Time.time + 0.1f;
         }
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
-
     }
 
     public void StopModeController()
@@ -82,7 +92,17 @@ public class CarMovementController_Ver02 : MonoBehaviour
 
     public void TurningModeConreoller()
     {
+        currentSpeed = 0;
+        accSpeed = 0;
         Debug.Log("This is turning");
+        gameObject.transform.Rotate(0.0f, 40.0f, 0.0f, Space.Self);
+
+    }
+
+    public void ParkingMode()
+    {
+        currentSpeed = 0;
+        accSpeed = 0;
     }
 
     public void SlowdownModeController()

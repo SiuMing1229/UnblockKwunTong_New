@@ -6,36 +6,46 @@ using UnityEngine.UI;
 public class AverageSpeed : MonoBehaviour
 {
     Text text;
-    GameObject speedManager;
-    CarMovementController_Ver01 speedController;
+    GameObject carManager_HYR_Slow, carManager_HYR_Middle, carManager_HYR_Fast;
+    //CarMovementController_Ver01 speedController;
     int vehicleCount;
-    float totalSpeed;
+    float totalSpeed, averageSpeed;
 
     GameObject number;
     VehicleNumber vehicleNumber;
 
-    GameObject[] cars;
+    List<GameObject> cars_slow, cars_middle, cars_fast;
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<Text>();
-        speedManager = GameObject.Find("HYR_SlowSpawnPoint");
-        speedController = speedManager.GetComponent<CarMovementController_Ver01>();
-        number = GameObject.Find("Vehicle Number Text");
+        carManager_HYR_Slow = GameObject.Find("HYR_SlowSpawnPoint");
+        carManager_HYR_Middle = GameObject.Find("HYR_MiddleSpawnPoint");
+        carManager_HYR_Fast = GameObject.Find("HYR_FastSpawnPoint");
+        //speedController = carManager.GetComponent<CarMovementController_Ver01>();
+
+        number = GameObject.Find("Vehicle Number Count");
         vehicleNumber = number.GetComponent<VehicleNumber>();
-        cars = GameObject.FindGameObjectsWithTag("Car");
+
+        cars_slow = carManager_HYR_Slow.GetComponent<SpawnCarController_Ver01>().cars;
+        cars_middle = carManager_HYR_Middle.GetComponent<SpawnCarController_Ver01>().cars;
+        cars_fast = carManager_HYR_Fast.GetComponent<SpawnCarController_Ver01>().cars;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //vehicleCount = vehicleNumber.totalCount;
+        for(int i = 0; i< cars_slow.Count; i++)
+        {
+            totalSpeed = 0;
+            totalSpeed += cars_slow[i].GetComponent<CarMovementController_Ver01>().currentSpeed;
+            totalSpeed += cars_middle[i].GetComponent<CarMovementController_Ver01>().currentSpeed;
+            totalSpeed += cars_fast[i].GetComponent<CarMovementController_Ver01>().currentSpeed;
+        }
 
-        //for(int i = 0; i < cars.Length; i++)
-        //{
-        //    totalSpeed += cars[i].GetComponent<CarMovementController_Ver01>().currentSpeed;
-        //}
-
-        //text.text = totalSpeed.ToString();
+        vehicleCount = vehicleNumber.totalCount;
+        averageSpeed = totalSpeed / vehicleCount;
+        text.text = averageSpeed.ToString();
     }
 }

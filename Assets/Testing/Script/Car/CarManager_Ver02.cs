@@ -17,12 +17,11 @@ public class CarManager_Ver02 : MonoBehaviour
     public int showNextPathIndex;
     public GameObject[] showCurrentPath;
 
-
     void Start()
     {
         //Set layer mask to "Car"
         gameObject.layer = 7;
-        gameObject.tag = "Car";
+        gameObject.tag = "HYR_Car";
 
         speedController = GetComponent<CarMovementController_Ver01>();
         sensor = GetComponent<Raycast_Test01>();
@@ -45,7 +44,6 @@ public class CarManager_Ver02 : MonoBehaviour
     void Update()
     {
         DestroyController();
-        
 
         pathController.currentPath = pathManager.GetPath(pathController.mainPathIndex, pathController.currentPathIndex);
         pathController.nextPathIndex = pathManager.GetNextPathID(pathController.mainPathIndex, pathController.currentPathIndex, pathController.secondPathIndex);
@@ -95,7 +93,4 @@ public class CarManager_Ver02 : MonoBehaviour
         
 
     }
-
-    
-
 }

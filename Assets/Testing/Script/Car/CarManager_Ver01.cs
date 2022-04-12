@@ -48,6 +48,7 @@ public class CarManager_Ver01 : MonoBehaviour
 
         speedController.SpeedControl(!sensor.isHit);
         speedController.Movement();
+        Debug.Log("wayPoint index: "+ pathController.waypointIndex + " pathController currentpath length: " + pathController.currentPath.Length);
         nextWaypointDistance = Vector3.Distance(transform.position, pathController.currentPath[pathController.waypointIndex].transform.position);
         if (nextWaypointDistance < 2f)
         {

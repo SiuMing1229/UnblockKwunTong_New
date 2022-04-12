@@ -17,6 +17,9 @@ public class SpawnCarController_Ver01 : MonoBehaviour
     [SerializeField] private float ranDelayTime;
     public int count;
 
+    //public Transform hyr;
+    public List<GameObject> cars;
+
     Raycast_Test01 sensor;
 
     //Random Spawn Car System
@@ -27,7 +30,10 @@ public class SpawnCarController_Ver01 : MonoBehaviour
     //public float testTotalTime;
     public int spawnIndex;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+
+    }
     void Start()
     {
         sensor = GetComponentInChildren<Raycast_Test01>();
@@ -47,7 +53,8 @@ public class SpawnCarController_Ver01 : MonoBehaviour
         //spawnIndex = 0;
         UpdateSpawnCarSchedule();
         timer = Time.time + spawningSchedule[spawnIndex];
-        
+
+        //hyr = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -69,8 +76,8 @@ public class SpawnCarController_Ver01 : MonoBehaviour
             }
             spawnIndex++;
             timer = Time.time + spawningSchedule[spawnIndex];
-            
         }
+
         
     }
 
@@ -78,8 +85,16 @@ public class SpawnCarController_Ver01 : MonoBehaviour
     {
         GameObject cloneCar = Instantiate(carPrefab, startPosition.position, Quaternion.Euler(0f, adjustAngle, 0f));
         cloneCar.name = "Car " + count;
-        cloneCar.transform.SetParent(transform);
+        cloneCar.transform.SetParent(this.transform);
         count++;
+        cars = AddToCars(cars, cloneCar);
+    }
+
+    List<GameObject> AddToCars(List<GameObject> _cars, GameObject _car)
+    {
+        _cars.Add(_car);
+
+        return _cars;
     }
 
     private void UpdateSpawnCarSchedule()

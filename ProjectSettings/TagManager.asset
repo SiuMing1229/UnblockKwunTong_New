@@ -45,6 +45,9 @@ TagManager:
   - HYSFirstMd
   - HYSFirstFt
   - HYSSecFt
+  - Fire
+  - HYR
+  - HYR_Car
   layers:
   - Default
   - TransparentFX
